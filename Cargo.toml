@@ -1,0 +1,27 @@
+[package]
+name = "sigil"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+authors = ["Molten Labs <hello@moltenlabs.dev>"]
+license = "MIT OR Apache-2.0"
+description = "Human-readable ANSI escape sequences for terminal styling ✨"
+repository = "https://github.com/moltenlabs/sigil"
+homepage = "https://molten.dev/sigil"
+documentation = "https://docs.rs/sigil"
+readme = "README.md"
+keywords = ["ansi", "terminal", "escape-sequences", "cli", "colors"]
+categories = ["command-line-interface", "text-processing"]
+include = ["src/**/*", "Cargo.toml", "LICENSE-*", "README.md", "CHANGELOG.md"]
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+molten_brand = { path = "../molten_brand", version = "0.1", optional = true }
+
+[features]
+default = []
+brand = ["molten_brand"]
+
+[dev-dependencies]
