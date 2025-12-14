@@ -1,12 +1,12 @@
 [package]
-name = "molten_sigil"
+name = "glyphs"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.75"
 authors = ["Molten Labs <hello@moltenlabs.dev>"]
 license = "MIT OR Apache-2.0"
-description = "Human-readable ANSI escape sequences for terminal styling ✨"
-repository = "https://github.com/moltenlabs/molten-sigil"
+description = "Beautiful ANSI escape sequences for terminal styling ✨"
+repository = "https://github.com/moltenlabs/glyphs"
 homepage = "https://molten.dev/sigil"
 documentation = "https://docs.rs/sigil"
 readme = "README.md"

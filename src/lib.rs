@@ -9,7 +9,7 @@
 //! ## Quick Start
 //!
 //! ```rust
-//! use molten_sigil::{style, Color, Modifier};
+//! use glyphs::{style, Color, Modifier};
 //!
 //! // Style some text
 //! let styled = style("Hello, World!")
@@ -25,7 +25,7 @@
 //!     .to_string();
 //!
 //! // Parse existing ANSI sequences
-//! let parsed = molten_sigil::parse("\x1b[31mRed text\x1b[0m");
+//! let parsed = glyphs::parse("\x1b[31mRed text\x1b[0m");
 //! ```
 //!
 //! ## Features

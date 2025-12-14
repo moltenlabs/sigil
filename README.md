@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/moltenlabs/molten-sigil/main/.github/assets/banner.png" alt="Molten Sigil" width="100%" />
+  <img src="https://raw.githubusercontent.com/moltenlabs/glyphs/main/.github/assets/banner.png" alt="Glyphs" width="100%" />
 </p>
 
-<h1 align="center">✨ Molten Sigil</h1>
+<h1 align="center">✨ Glyphs</h1>
 
 <p align="center">
-  <strong>Human-readable ANSI escape sequences for Rust.</strong>
+  <strong>Beautiful ANSI escape sequences for Rust.</strong>
 </p>
 
 <p align="center">
-  <a href="https://crates.io/crates/molten_sigil"><img src="https://img.shields.io/crates/v/molten_sigil.svg?style=flat-square&logo=rust" alt="Crates.io"></a>
-  <a href="https://docs.rs/molten_sigil"><img src="https://img.shields.io/docsrs/molten_sigil?style=flat-square&logo=docs.rs" alt="Documentation"></a>
-  <a href="https://github.com/moltenlabs/molten-sigil/actions"><img src="https://img.shields.io/github/actions/workflow/status/moltenlabs/molten-sigil/ci.yml?style=flat-square&logo=github" alt="CI"></a>
+  <a href="https://crates.io/crates/glyphs"><img src="https://img.shields.io/crates/v/glyphs.svg?style=flat-square&logo=rust" alt="Crates.io"></a>
+  <a href="https://docs.rs/glyphs"><img src="https://img.shields.io/docsrs/glyphs?style=flat-square&logo=docs.rs" alt="Documentation"></a>
+  <a href="https://github.com/moltenlabs/glyphs/actions"><img src="https://img.shields.io/github/actions/workflow/status/moltenlabs/glyphs/ci.yml?style=flat-square&logo=github" alt="CI"></a>
   <a href="#license"><img src="https://img.shields.io/badge/license-MIT%2FApache--2.0-blue?style=flat-square" alt="License"></a>
 </p>
 
@@ -25,9 +25,9 @@
 
 ---
 
-## What is Molten Sigil?
+## What is Glyphs?
 
-**Molten Sigil** is a Rust library for working with ANSI escape sequences. It lets you:
+**Glyphs** is a Rust library for working with ANSI escape sequences. It lets you:
 
 1. **Style terminal output** with a fluent, type-safe API
 2. **Parse existing sequences** into human-readable descriptions
@@ -37,7 +37,7 @@
 Think of it as the Rust equivalent of [sequin](https://github.com/charmbracelet/sequin) from Charmbracelet.
 
 ```rust
-use molten_sigil::{style, Color, parse};
+use glyphs::{style, Color, parse};
 
 // Style text beautifully
 let output = style("Hello, Terminal!")
@@ -112,21 +112,21 @@ visible_len("\x1b[31mHello\x1b[0m") // 5
 ## Installation
 
 ```bash
-cargo add molten_sigil
+cargo add glyphs
 ```
 
 Or add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-molten_sigil = "0.1"
+glyphs = "0.1"
 ```
 
 ### With Molten Brand Colors
 
 ```toml
 [dependencies]
-molten_sigil = { version = "0.1", features = ["brand"] }
+glyphs = { version = "0.1", features = ["brand"] }
 ```
 
 ---
@@ -136,7 +136,7 @@ molten_sigil = { version = "0.1", features = ["brand"] }
 ### Basic Styling
 
 ```rust
-use molten_sigil::{style, Color};
+use glyphs::{style, Color};
 
 // Simple colors
 let red = style("Error!").fg(Color::Red).to_string();
@@ -161,7 +161,7 @@ let palette = style("Palette")
 ### Text Modifiers
 
 ```rust
-use molten_sigil::{style, Color};
+use glyphs::{style, Color};
 
 let styled = style("Important")
     .bold()           // Bold text
@@ -177,7 +177,7 @@ let styled = style("Important")
 ### Combining Styles
 
 ```rust
-use molten_sigil::{style, Color};
+use glyphs::{style, Color};
 
 let fancy = style("🔥 Molten Labs")
     .fg(Color::rgb(249, 115, 22))
@@ -197,7 +197,7 @@ println!("{}", fancy);
 Turn cryptic escape codes into readable descriptions:
 
 ```rust
-use molten_sigil::{parse, ParsedSequence};
+use glyphs::{parse, ParsedSequence};
 
 let input = "\x1b[1;38;2;249;115;22mMolten\x1b[0m";
 
@@ -217,7 +217,7 @@ for segment in parse(input) {
 ### Strip ANSI Codes
 
 ```rust
-use molten_sigil::strip_ansi;
+use glyphs::strip_ansi;
 
 let styled = "\x1b[1;31mBold Red\x1b[0m Normal";
 let plain = strip_ansi(styled);
@@ -227,7 +227,7 @@ assert_eq!(plain, "Bold Red Normal");
 ### Get Visible Length
 
 ```rust
-use molten_sigil::visible_len;
+use glyphs::visible_len;
 
 let styled = "\x1b[31mHello\x1b[0m";
 assert_eq!(visible_len(styled), 5);  // Not 14!
@@ -240,7 +240,7 @@ assert_eq!(visible_len(styled), 5);  // Not 14!
 ### Cursor Movement
 
 ```rust
-use molten_sigil::cursor;
+use glyphs::cursor;
 
 // Move cursor
 print!("{}", cursor::up(5));      // Move up 5 lines
@@ -256,7 +256,7 @@ print!("{}", cursor::column(1));      // Start of line
 ### Screen Control
 
 ```rust
-use molten_sigil::sequences;
+use glyphs::sequences;
 
 // Clear screen
 print!("{}", sequences::CLEAR_SCREEN);
@@ -326,20 +326,20 @@ Color::ansi256(255)   // White
 
 ## Ecosystem
 
-Molten Sigil is part of the **Molten Labs** open source ecosystem:
+Glyphs is part of the **Molten Labs** open source ecosystem:
 
 | Crate | Description | Status |
 |-------|-------------|--------|
 | **[molten_brand](https://crates.io/crates/molten_brand)** | Design tokens & colors | ✅ Published |
-| **[molten_sigil](https://crates.io/crates/molten_sigil)** | ANSI sequences (you are here) | ✅ Published |
+| **[glyphs](https://crates.io/crates/glyphs)** | ANSI sequences (you are here) | ✅ Published |
 | **[lacquer](https://crates.io/crates/lacquer)** | Terminal styling (like lipgloss) | ✅ Published |
 | **cauldron** | TUI framework (like bubbletea) | 📋 Planned |
 
 ---
 
-## Why "Sigil"?
+## Why "Glyphs"?
 
-In fantasy lore, a **sigil** is a magical symbol or mark. In Molten Sigil, ANSI escape sequences are the magical marks that transform plain text into beautiful terminal output. ✨
+A **glyph** is a symbolic mark or character—like the hidden ANSI codes that transform plain text into beautiful terminal output. In the forge, we inscribe glyphs to add magic to our creations. ✨
 
 ---
 
@@ -357,8 +357,8 @@ In fantasy lore, a **sigil** is a magical symbol or mark. In Molten Sigil, ANSI 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ```bash
-git clone https://github.com/moltenlabs/molten-sigil
-cd molten-sigil
+git clone https://github.com/moltenlabs/glyphs
+cd glyphs
 cargo test
 ```
 
