@@ -27,7 +27,7 @@ impl SequenceBuilder {
     pub fn csi(mut self, params: &[u16], final_char: char) -> Self {
         let params_str = params
             .iter()
-            .map(|p| p.to_string())
+            .map(std::string::ToString::to_string)
             .collect::<Vec<_>>()
             .join(";");
         self.sequences.push(format!("\x1b[{params_str}{final_char}"));

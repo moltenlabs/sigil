@@ -79,6 +79,7 @@ impl fmt::Display for Escape {
 
 /// Parse SGR (style) parameters into a description.
 #[must_use]
+#[allow(clippy::too_many_lines)]
 pub fn describe_sgr(params: &[u16]) -> String {
     if params.is_empty() || params == [0] {
         return "reset".to_string();

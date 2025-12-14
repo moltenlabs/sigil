@@ -49,6 +49,7 @@ impl ParsedSequence {
 /// }
 /// ```
 #[must_use]
+#[allow(clippy::missing_panics_doc)]
 pub fn parse(input: &str) -> Vec<ParsedSequence> {
     let mut result = Vec::new();
     let mut current_text = String::new();
@@ -91,7 +92,7 @@ pub fn parse(input: &str) -> Vec<ParsedSequence> {
                         // OSC sequence
                         while let Some(&c) = chars.peek() {
                             seq.push(chars.next().unwrap());
-                            if c == '\x07' || (c == '\\' && seq.ends_with("\x1b")) {
+                            if c == '\x07' || (c == '\\' && seq.ends_with('\x1b')) {
                                 break;
                             }
                         }

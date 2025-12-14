@@ -164,7 +164,7 @@ impl fmt::Display for Color {
     }
 }
 
-/// Convert from molten_brand colors when the `brand` feature is enabled.
+/// Convert from `molten_brand` colors when the `brand` feature is enabled.
 #[cfg(feature = "brand")]
 impl From<molten_brand::Color> for Color {
     fn from(color: molten_brand::Color) -> Self {

@@ -140,13 +140,13 @@ impl ModifierSet {
 
     /// Check if a modifier is in the set.
     #[must_use]
-    pub const fn contains(&self, modifier: Modifier) -> bool {
+    pub const fn contains(self, modifier: Modifier) -> bool {
         (self.bits & (1 << Self::bit_for(modifier))) != 0
     }
 
     /// Get all enabled modifiers.
     #[must_use]
-    pub fn modifiers(&self) -> Vec<Modifier> {
+    pub fn modifiers(self) -> Vec<Modifier> {
         let all = [
             Modifier::Bold,
             Modifier::Dim,
@@ -165,7 +165,8 @@ impl ModifierSet {
 
     /// Get the ANSI codes for all enabled modifiers.
     #[must_use]
-    pub fn codes(&self) -> Vec<u8> {
+    #[allow(clippy::redundant_closure_for_method_calls)]
+    pub fn codes(self) -> Vec<u8> {
         self.modifiers().iter().map(|m| m.on_code()).collect()
     }
 }

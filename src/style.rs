@@ -138,7 +138,7 @@ impl Styled {
 
         let codes_str = codes
             .iter()
-            .map(|c| c.to_string())
+            .map(std::string::ToString::to_string)
             .collect::<Vec<_>>()
             .join(";");
 
